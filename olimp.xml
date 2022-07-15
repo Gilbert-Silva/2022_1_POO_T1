@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<QuadroMedalhas xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Ano>2021</Ano>
+  <Sede>
+    <Nome>Japão</Nome>
+    <Ouro>12</Ouro>
+    <Prata>4</Prata>
+    <Bronze>4</Bronze>
+  </Sede>
+  <Paises>
+    <Pais>
+      <Nome>Brasil</Nome>
+      <Ouro>10</Ouro>
+      <Prata>5</Prata>
+      <Bronze>3</Bronze>
+    </Pais>
+    <Pais>
+      <Nome>Japão</Nome>
+      <Ouro>12</Ouro>
+      <Prata>4</Prata>
+      <Bronze>4</Bronze>
+    </Pais>
+    <Pais>
+      <Nome>Argentina</Nome>
+      <Ouro>8</Ouro>
+      <Prata>15</Prata>
+      <Bronze>3</Bronze>
+    </Pais>
+  </Paises>
+</QuadroMedalhas>
