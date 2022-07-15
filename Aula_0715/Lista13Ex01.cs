@@ -64,6 +64,15 @@ public class QuadroMedalhas {
     xml.Serialize(f, this);
     f.Close();
   }
+  public void AbrirXML(string arquivo) {
+    StreamReader f = new StreamReader(arquivo);
+    XmlSerializer xml = new XmlSerializer(typeof(QuadroMedalhas));
+    QuadroMedalhas q = (QuadroMedalhas) xml.Deserialize(f);
+    f.Close();
+    this.Sede = q.Sede;
+    this.Ano = q.Ano;
+    this.Paises = q.Paises;
+  }
   public void SalvarCSV(string arquivo) {
     StreamWriter f = new StreamWriter(arquivo);
     f.WriteLine(Sede.ToCSV());
@@ -90,15 +99,16 @@ public class QuadroMedalhas {
 }
 
 class Program {
-  public static void Main2() {
+  public static void Main() {
     QuadroMedalhas q = new QuadroMedalhas();
-    q.AbrirCSV("olimp.csv");    
+    //q.AbrirCSV("olimp.csv");    
+    q.AbrirXML("olimp.xml");    
     Console.WriteLine(q.Sede.Nome);
     Console.WriteLine(q.Ano);
     foreach (Pais p in q.Listar())
       Console.WriteLine(p);
   }
-  public static void Main() {
+  public static void Main2() {
     Pais p1 = new Pais("Brasil", 10, 5, 3);
     Pais p2 = new Pais("Japão", 12, 4, 4);
     Pais p3 = new Pais("Argentina", 8, 15, 3);
