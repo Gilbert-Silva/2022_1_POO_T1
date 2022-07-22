@@ -1,5 +1,5 @@
 Alanguage = "bash"
 run = "mcs -out:Main.exe './Aula_0721/Program.cs' './Aula_0721/Categoria.cs' './Aula_0721/NCategoria.cs' ; mono Main.exe"
-#run = "python3 ./Aula_0713/exemplo.txt"
+#run = "python3 ./Aula_0722/Program.py"
 #run = "g++ -o main.exe ./Aula_0519/extipos.cpp ; ./main.exe"
 #run = "javac ./Aula_0527/lista03ex02.java -d ./ ; java Program"
