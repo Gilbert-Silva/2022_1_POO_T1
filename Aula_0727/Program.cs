@@ -6,23 +6,22 @@ class Program {
   
   public static void Main() {
     Console.WriteLine("--- Bem-vindo ao IFShop ---");
-    Console.WriteLine();
     int op = 0;
     do {
       try {
-        bool login = false;
         op = Menu();
         switch (op) {
             // Categoria
-            case 01 : login = Login(); break;
+            case 01 : 
+              if (Login()) { 
+                if (admin) MainAdmin();
+                else MainCliente();
+              }
+              else 
+                Console.WriteLine("Usuário ou senha inválidos");
+              break;
             case 02 : Cadastrarse(); break;
         }
-        if (op != 99)
-          if (login) {
-            if (admin) MainAdmin();
-            else MainCliente();
-          }
-          else Console.WriteLine("Usuário ou senha inválidos");
       }
       catch (Exception erro) {
         Console.WriteLine(erro.Message);      
@@ -54,8 +53,21 @@ class Program {
     } while (op != 99);
   }
   public static void MainCliente() {
+    int op = 0;
+    do {
+      try {
+        op = MenuCliente();
+        switch (op) {
+        }
+      }
+      catch (Exception erro) {
+        Console.WriteLine(erro.Message);      
+      }
+    } while (op != 99);
   }  
+  
   public static int Menu() {
+    Console.WriteLine();
     Console.WriteLine("----- Selecione ------");
     Console.WriteLine("  01 - Login");
     Console.WriteLine("  02 - Cadastrar-se");
@@ -67,6 +79,7 @@ class Program {
   }
 
   public static int MenuAdmin() {
+    Console.WriteLine();
     Console.WriteLine("----- Categorias -----");
     Console.WriteLine("  01 - Inserir");
     Console.WriteLine("  02 - Listar");
@@ -83,7 +96,9 @@ class Program {
     Console.Write("Opção: ");
     return int.Parse(Console.ReadLine());    
   }
+  
   public static int MenuCliente() {
+    Console.WriteLine();
     Console.WriteLine($"--- Bem-vindo: {clienteLogado.Nome} ---" );
     Console.WriteLine("----------------------");
     Console.WriteLine("  99 - Logout");
@@ -93,32 +108,21 @@ class Program {
   }
 
   public static bool Login() {
-    admin = false;
     Console.WriteLine("Informe o nome");
     string nome = Console.ReadLine();
     Console.WriteLine("Informe a senha");
     string senha = Console.ReadLine();
     if (nome == "admin") {
-      if (senha == "admin") {
-        admin = true;
-        return true;     
-      }
-      else {
-        return false;       
-      }
+      admin = true;
+      clienteLogado = null;
+      return senha == "admin";
     }
     else {
-      Cliente c = new Cliente();
-      c.Nome = nome;
-      c.Senha = senha;
-      if NCliente.Autenticar(out c) {
-        clienteLogado = c;
-        return true;
-      }
-      else {
-        clienteLogado = null;
-        return false;
-      }
+      admin = false;
+      clienteLogado = new Cliente();
+      clienteLogado.Nome = nome;
+      clienteLogado.Senha = senha;
+      return NCliente.Autenticar(ref clienteLogado);
     }
   }
   public static void Cadastrarse() {
@@ -264,6 +268,4 @@ class Program {
 
     Console.WriteLine("Produto excluído com sucesso");
   }
-
-  
 }

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 
 static class NCliente {
   private static List<Cliente> clientes = new List<Cliente>();
-  public static bool Autenticar(out Cliente c) {
+  public static bool Autenticar(ref Cliente c) {
     foreach(Cliente obj in clientes)
-      if(obj.Nome == c.Nome && obj.Senha = c.Senha) {
+      if(obj.Nome == c.Nome && obj.Senha == c.Senha) {
         c = obj;
         return true;
       }
+    c = null;
     return false;
   }
   public static void Inserir(Cliente c) {
