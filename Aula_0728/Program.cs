@@ -4,7 +4,7 @@ class Program {
   private static bool adminLogado = false;
   private static Cliente clienteLogado = null;
 
-  public static InserirAdmin() {
+  public static void InserirAdmin() {
     Usuario u = new Usuario();
     u.Nome = "admin";
     u.Senha = "admin";
