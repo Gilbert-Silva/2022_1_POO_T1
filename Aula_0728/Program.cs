@@ -67,6 +67,7 @@ class Program {
       try {
         op = MenuCliente();
         switch (op) {
+          case 01 : ProdutoListar(); break;
         }
       }
       catch (Exception erro) {
@@ -109,6 +110,8 @@ class Program {
   public static int MenuCliente() {
     Console.WriteLine();
     Console.WriteLine($"--- Bem-vindo: {clienteLogado.Nome} ---" );
+    Console.WriteLine("----------------------");
+    Console.WriteLine("  01 - Listar Produtos");
     Console.WriteLine("----------------------");
     Console.WriteLine("  99 - Logout");
     Console.WriteLine("----------------------");
