@@ -55,6 +55,8 @@ class Program {
             case 06 : ProdutoListar(); break;
             case 07 : ProdutoAtualizar(); break;
             case 08 : ProdutoExcluir(); break;
+            // Venda
+            case 09 : VendaListar(); break;
           }
       }
       catch (Exception erro) {
@@ -69,6 +71,10 @@ class Program {
         op = MenuCliente();
         switch (op) {
           case 01 : ProdutoListar(); break;
+          case 02 : ClienteInserirProduto(); break;
+          case 03 : ClienteVerCarrinho(); break;
+          case 04 : ClienteConfirmarCarrinho(); break;
+          case 05 : ClienteListarVendas(); break;
         }
       }
       catch (Exception erro) {
@@ -101,6 +107,8 @@ class Program {
     Console.WriteLine("  06 - Listar");
     Console.WriteLine("  07 - Atualizar");
     Console.WriteLine("  08 - Excluir");
+    Console.WriteLine("------ Vendas ------");
+    Console.WriteLine("  09 - Listar");
     Console.WriteLine("----------------------");
     Console.WriteLine("  99 - Logout");
     Console.WriteLine("----------------------");
@@ -113,6 +121,10 @@ class Program {
     Console.WriteLine($"--- Bem-vindo: {clienteLogado.Nome} ---" );
     Console.WriteLine("----------------------");
     Console.WriteLine("  01 - Listar Produtos");
+    Console.WriteLine("  02 - Inserir Produto no Carrinho");
+    Console.WriteLine("  03 - Ver o Carrinho");
+    Console.WriteLine("  04 - Confirmar o Carrinho");
+    Console.WriteLine("  05 - Ver as Compras Anteriores");
     Console.WriteLine("----------------------");
     Console.WriteLine("  99 - Logout");
     Console.WriteLine("----------------------");
@@ -120,6 +132,67 @@ class Program {
     return int.Parse(Console.ReadLine());    
   }
 
+  public static void ClienteInserirProduto() {
+    // Mostra a lista de produtos
+    ProdutoListar();
+    Console.WriteLine("Informe o id do produto a ser comprado");
+    int idProduto = int.Parse(Console.ReadLine());
+    Console.WriteLine("Informe a quantidade");
+    int qtd = int.Parse(Console.ReadLine());
+
+    VendaItem vi = new VendaItem();
+    vi.Qtd = qtd;
+    vi.Preco = NProduto.Listar(idProduto).Preco;
+    vi.IdProduto = idProduto;
+    vi.IdVenda = carrinho.Id;
+
+    NVendaItem.Inserir(vi);
+  }
+  public static void ClienteVerCarrinho() {
+    Console.WriteLine("----- Lista de Itens no Carrinho -----");
+    foreach(VendaItem obj in NVendaItem.Listar(carrinho))
+      Console.WriteLine(
+        $"Qtd:{obj.Qtd} - " +
+        $"{NProduto.Listar(obj.IdProduto).Descricao} - R$ {obj.Preco}");
+  }
+  public static void ClienteConfirmarCarrinho() {
+    Console.WriteLine("----- Confirmar Carrinho -----");
+    Console.WriteLine("Confimar a compra (s/n)?");
+    string s = Console.ReadLine();
+    if (s == "s") {
+      // Confirma o carrinho atual
+      carrinho.Carrinho = false;
+      // Inicia novo carrinho 
+      carrinho = new Venda();
+      carrinho.Data = DateTime.Now;
+      carrinho.Carrinho = true;
+      carrinho.IdCliente = clienteLogado.Id;
+      int id = NVenda.Inserir(carrinho);
+      carrinho.Id = id;
+    }
+  }
+  public static void ClienteListarVendas() {
+    Console.WriteLine("----- Lista de Compras -----");
+    foreach(Venda obj in NVenda.Listar(clienteLogado)) {
+      Console.WriteLine($"Pedido {obj.Id} em {obj.Data}");
+      foreach(VendaItem item in NVendaItem.Listar(obj))
+        Console.WriteLine(
+          $"  Qtd:{item.Qtd} - " +
+          $"{NProduto.Listar(item.IdProduto).Descricao} - R$ {item.Preco}");
+    }
+  }
+
+  public static void VendaListar() {
+    Console.WriteLine("----- Lista de Compras -----");
+    foreach(Venda obj in NVenda.Listar()) {
+      Console.WriteLine($"Pedido {obj.Id} em {obj.Data} de {NCliente.Listar(obj.IdCliente).Nome}");
+      foreach(VendaItem item in NVendaItem.Listar(obj))
+        Console.WriteLine(
+          $"  Qtd:{item.Qtd} - " +
+          $"{NProduto.Listar(item.IdProduto).Descricao} - R$ {item.Preco}");
+    }
+  }
+  
   public static bool Login() {
     Console.WriteLine("Informe o nome");
     string nome = Console.ReadLine();
@@ -131,11 +204,12 @@ class Program {
       adminLogado = u.Admin;
       // Cliente logado se estiver no cadastro de clientes
       // o id do usuário informado
-      clienteLogado = NCliente.Listar(u.Id); 
+      clienteLogado = NCliente.ListarUsuario(u.Id); 
       if (clienteLogado != null) {
         carrinho = new Venda();
         carrinho.Data = DateTime.Now;
         carrinho.Carrinho = true;
+        carrinho.IdCliente = clienteLogado.Id;
         int id = NVenda.Inserir(carrinho);
         carrinho.Id = id;
       }
