@@ -182,17 +182,6 @@ class Program {
     }
   }
 
-  public static void VendaListar() {
-    Console.WriteLine("----- Lista de Compras -----");
-    foreach(Venda obj in NVenda.Listar()) {
-      Console.WriteLine($"Pedido {obj.Id} em {obj.Data} de {NCliente.Listar(obj.IdCliente).Nome}");
-      foreach(VendaItem item in NVendaItem.Listar(obj))
-        Console.WriteLine(
-          $"  Qtd:{item.Qtd} - " +
-          $"{NProduto.Listar(item.IdProduto).Descricao} - R$ {item.Preco}");
-    }
-  }
-  
   public static bool Login() {
     Console.WriteLine("Informe o nome");
     string nome = Console.ReadLine();
@@ -367,4 +356,16 @@ class Program {
 
     Console.WriteLine("Produto excluído com sucesso");
   }
+
+  public static void VendaListar() {
+    Console.WriteLine("----- Lista de Compras -----");
+    foreach(Venda obj in NVenda.Listar()) {
+      Console.WriteLine($"Pedido {obj.Id} em {obj.Data} de {NCliente.Listar(obj.IdCliente).Nome}");
+      foreach(VendaItem item in NVendaItem.Listar(obj))
+        Console.WriteLine(
+          $"  Qtd:{item.Qtd} - " +
+          $"{NProduto.Listar(item.IdProduto).Descricao} - R$ {item.Preco}");
+    }
+  }  
+  
 }
