@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCliente xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Cliente>
+    <Id>1</Id>
+    <Nome>gilbert</Nome>
+    <IdUsuario>2</IdUsuario>
+  </Cliente>
+</ArrayOfCliente>

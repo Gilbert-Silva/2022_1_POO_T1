@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfVendaItem xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <VendaItem>
+    <Id>1</Id>
+    <Qtd>1</Qtd>
+    <Preco>100</Preco>
+    <IdProduto>1</IdProduto>
+    <IdVenda>1</IdVenda>
+  </VendaItem>
+</ArrayOfVendaItem>
