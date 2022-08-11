@@ -1,5 +1,5 @@
 language = "bash"
-run = "mcs -out:Main.exe './Aula_0811/exemplo2.cs' ; mono Main.exe"
+run = "mcs -out:Main.exe './Aula_0811/exemplo.cs' ; mono Main.exe"
 #run = "mcs -out:Main.exe './Aula_0805/Program.cs' './Aula_0805/Categoria.cs' './Aula_0805/Produto.cs'  './Aula_0805/Cliente.cs' './Aula_0805/Usuario.cs'  './Aula_0805/Venda.cs' './Aula_0805/VendaItem.cs' './Aula_0805/NCategoria.cs' './Aula_0805/NProduto.cs' './Aula_0805/NCliente.cs' './Aula_0805/NUsuario.cs' './Aula_0805/NVenda.cs' './Aula_0805/NVendaItem.cs' './Aula_0805/Arquivo.cs'; mono Main.exe"
 #run = "python3 ./Aula_0722/Program.py"
 #run = "g++ -o main.exe ./Aula_0519/extipos.cpp ; ./main.exe"

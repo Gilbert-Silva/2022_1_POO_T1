@@ -12,15 +12,15 @@ class Program {
   }
 }
 
-class Aluno : Object // Herança {
+class Aluno : object { // Herança 
   public string Cpf {get;set;}
-  public override string ToString() { // Polimorfismo
-    return "Eu sou um aluno com cpf = " + Cpf;
+  public override string ToString() {
+    return "Eu sou o aluno com cpf = " + Cpf;
   }
   public override bool Equals(object obj) {
-    Aluno x = (Aluno) obj;
+    Aluno x = (Aluno)obj;
     return this.Cpf == x.Cpf;
-  }  
+  }
 }
 
 abstract class Item {
