@@ -8,4 +8,8 @@
     <Id>2</Id>
     <Descricao>Teclado</Descricao>
   </Categoria>
+  <Categoria>
+    <Id>3</Id>
+    <Descricao>Notebook</Descricao>
+  </Categoria>
 </ArrayOfCategoria>

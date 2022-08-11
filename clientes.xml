@@ -5,4 +5,9 @@
     <Nome>gilbert</Nome>
     <IdUsuario>2</IdUsuario>
   </Cliente>
+  <Cliente>
+    <Id>2</Id>
+    <Nome>george</Nome>
+    <IdUsuario>3</IdUsuario>
+  </Cliente>
 </ArrayOfCliente>

@@ -12,4 +12,10 @@
     <Senha>1234</Senha>
     <Admin>false</Admin>
   </Usuario>
+  <Usuario>
+    <Id>3</Id>
+    <Nome>george</Nome>
+    <Senha>4321</Senha>
+    <Admin>false</Admin>
+  </Usuario>
 </ArrayOfUsuario>

@@ -162,6 +162,7 @@ class Program {
     if (s == "s") {
       // Confirma o carrinho atual
       carrinho.Carrinho = false;
+      NVenda.Atualizar(carrinho);
       // Inicia novo carrinho 
       carrinho = new Venda();
       carrinho.Data = DateTime.Now;

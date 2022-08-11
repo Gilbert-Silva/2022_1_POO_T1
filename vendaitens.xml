@@ -7,4 +7,18 @@
     <IdProduto>1</IdProduto>
     <IdVenda>1</IdVenda>
   </VendaItem>
+  <VendaItem>
+    <Id>2</Id>
+    <Qtd>1</Qtd>
+    <Preco>1200</Preco>
+    <IdProduto>2</IdProduto>
+    <IdVenda>2</IdVenda>
+  </VendaItem>
+  <VendaItem>
+    <Id>3</Id>
+    <Qtd>1</Qtd>
+    <Preco>1200</Preco>
+    <IdProduto>2</IdProduto>
+    <IdVenda>6</IdVenda>
+  </VendaItem>
 </ArrayOfVendaItem>

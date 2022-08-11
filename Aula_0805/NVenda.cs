@@ -28,6 +28,22 @@ static class NVenda {
     lista.Sort();
     return lista;
   }  
+  public static Venda Listar(int id) {
+    vendas = Abrir();
+    foreach(Venda obj in vendas)
+      if(obj.Id == id) return obj;
+    return null;
+  }  
+  public static void Atualizar(Venda v) {
+    Venda atual = Listar(v.Id);
+    if (atual != null) {
+      atual.Data = v.Data;
+      atual.Carrinho = v.Carrinho;
+      atual.Total = v.Total;
+      atual.IdCliente = v.IdCliente;
+      Salvar(vendas);
+    }
+  }  
   private static string arquivo = "./vendas.xml";
   private static List<Venda> Abrir() {
     try {
