@@ -23,11 +23,13 @@ static class NCategoria {
     categorias = Abrir();
     categorias.Sort();
     return categorias;
+    //return categorias.OrderBy(obj => obj.Descricao);
   }
   public static Categoria Listar(int id) {
     categorias = Abrir();
     foreach(Categoria obj in categorias)
       if (obj.Id == id) return obj;
+    // categorias.Where(obj => obj.Id = id);
     return null;
   }
   public static void Atualizar(Categoria c) {
