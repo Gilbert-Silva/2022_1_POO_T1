@@ -35,4 +35,11 @@
     <IdProduto>2</IdProduto>
     <IdVenda>5</IdVenda>
   </VendaItem>
+  <VendaItem>
+    <Id>6</Id>
+    <Qtd>1</Qtd>
+    <Preco>1000</Preco>
+    <IdProduto>5</IdProduto>
+    <IdVenda>6</IdVenda>
+  </VendaItem>
 </ArrayOfVendaItem>

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 class Program {
   private static bool adminLogado = false;
@@ -311,6 +313,13 @@ class Program {
     Console.WriteLine("Produto inserido com sucesso");
   }
   public static void ProdutoListar() {
+    Console.WriteLine("----- Lista de Produtos -----");
+    List<Produto> produtos = NProduto.Listar();
+    List<Categoria> categorias = NCategoria.Listar();
+    foreach(var item in produtos.Join(categorias, p => p.IdCategoria, c => c.Id, (p, c) => new { p.Id, p.Descricao, p.Preco, p.Estoque, Categoria = c.Descricao }).OrderBy(x => x.Descricao)) 
+      Console.WriteLine($"{item.Id} - {item.Descricao} - R$ {item.Preco:0.00} - Estoque: {item.Estoque} - Categoria: {item.Categoria}");
+  }
+  public static void ProdutoListar2() {
     Console.WriteLine("----- Lista de Produtos -----");
     foreach(Produto obj in NProduto.Listar())
       Console.WriteLine(obj + " - Categoria: " +

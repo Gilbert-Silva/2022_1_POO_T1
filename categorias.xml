@@ -12,4 +12,8 @@
     <Id>3</Id>
     <Descricao>Notebook</Descricao>
   </Categoria>
+  <Categoria>
+    <Id>4</Id>
+    <Descricao>Mouse</Descricao>
+  </Categoria>
 </ArrayOfCategoria>

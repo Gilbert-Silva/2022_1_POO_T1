@@ -21,4 +21,18 @@
     <Estoque>10</Estoque>
     <IdCategoria>1</IdCategoria>
   </Produto>
+  <Produto>
+    <Id>4</Id>
+    <Descricao>Mouse Dell</Descricao>
+    <Preco>100</Preco>
+    <Estoque>10</Estoque>
+    <IdCategoria>4</IdCategoria>
+  </Produto>
+  <Produto>
+    <Id>5</Id>
+    <Descricao>Teclado Bluetooth</Descricao>
+    <Preco>1000</Preco>
+    <Estoque>10</Estoque>
+    <IdCategoria>2</IdCategoria>
+  </Produto>
 </ArrayOfProduto>

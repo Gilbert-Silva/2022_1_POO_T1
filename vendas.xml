@@ -31,6 +31,13 @@
   <Venda>
     <Id>5</Id>
     <Data>2022-08-18T13:17:06.639601+00:00</Data>
+    <Carrinho>false</Carrinho>
+    <Total>0</Total>
+    <IdCliente>1</IdCliente>
+  </Venda>
+  <Venda>
+    <Id>6</Id>
+    <Data>2022-08-18T14:04:15.180627+00:00</Data>
     <Carrinho>true</Carrinho>
     <Total>0</Total>
     <IdCliente>1</IdCliente>

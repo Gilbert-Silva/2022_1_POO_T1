@@ -27,7 +27,7 @@ static class NProduto {
     produtos = Abrir();
     //produtos.Sort(new ProdutoPreco());
     //return produtos;
-    return produtos.OrderBy(p => p.Preco).ToList();
+    return produtos.OrderBy(p => p.Preco).ThenBy(p => p.Descricao).ToList();
   }
   // Func(Produto, string)
   public static string NomeProduto(Produto p) {
