@@ -14,4 +14,11 @@
     <Estoque>10</Estoque>
     <IdCategoria>1</IdCategoria>
   </Produto>
+  <Produto>
+    <Id>3</Id>
+    <Descricao>Monitor Acer</Descricao>
+    <Preco>1000</Preco>
+    <Estoque>10</Estoque>
+    <IdCategoria>1</IdCategoria>
+  </Produto>
 </ArrayOfProduto>

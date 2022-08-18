@@ -19,6 +19,20 @@
     <Qtd>1</Qtd>
     <Preco>1200</Preco>
     <IdProduto>2</IdProduto>
-    <IdVenda>6</IdVenda>
+    <IdVenda>4</IdVenda>
+  </VendaItem>
+  <VendaItem>
+    <Id>4</Id>
+    <Qtd>1</Qtd>
+    <Preco>1000</Preco>
+    <IdProduto>3</IdProduto>
+    <IdVenda>3</IdVenda>
+  </VendaItem>
+  <VendaItem>
+    <Id>5</Id>
+    <Qtd>1</Qtd>
+    <Preco>1200</Preco>
+    <IdProduto>2</IdProduto>
+    <IdVenda>5</IdVenda>
   </VendaItem>
 </ArrayOfVendaItem>
